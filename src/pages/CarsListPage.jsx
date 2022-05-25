@@ -14,7 +14,9 @@ export default function CarsListPage() {
 
   return (
     <Container>
-      <div style={{ textAlign: "center", marginBottom: "2em" }}>
+      <div
+        style={{ textAlign: "center", marginBottom: "2em", marginTop: "2em" }}
+      >
         <h1>Cars</h1>
       </div>
       <Row>

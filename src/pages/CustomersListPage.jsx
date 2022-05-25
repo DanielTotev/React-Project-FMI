@@ -20,9 +20,9 @@ export default function CustomersListPage() {
         <thead>
           <tr>
             <th>#</th>
-            <th>FullName</th>
+            <th>Full Name</th>
             <th>Email</th>
-            <th>PhoneNumber</th>
+            <th>Phone Number</th>
           </tr>
         </thead>
         <tbody>
