@@ -1,77 +1,98 @@
 {
-    "customers": [
-        {
-            "id": 1,
-            "fullName": "Daniel Totev",
-            "email": "dtotev1@gmail.com",
-            "passowrd": "pass123",
-            "phoneNumber": "+359123456789",
-            "isAdmin": true
-        },
-        {
-            "id": 2,
-            "fullName": "Test Testov",
-            "email": "test@gmail.com",
-            "passowrd": "pass456",
-            "phoneNumber": "+359123456789"
-        }
-    ],
-    "vehicles": [
-        {
-            "id": 1,
-            "type": "SUV",
-            "brand": "Volkswagen",
-            "model": "Taos",
-            "constructionYear": 2022,
-            "numberOfSeats": 4,
-            "imageUrl": "https://media.ed.edmunds-media.com/volkswagen/taos/2022/oem/2022_volkswagen_taos_4dr-suv_se_fq_oem_1_815.jpg",
-            "pricePerDay": 200,
-            "count": 4
-        },
-        {
-            "id": 2,
-            "type": "economy",
-            "brand": "Fiat",
-            "model": "Panda",
-            "constructionYear": 2009,
-            "numberOfSeats": 4,
-            "imageUrl": "https://th.bing.com/th/id/OIP.hESMsvkesbTuhUwR7gz9VwHaFj?pid=ImgDet&rs=1",
-            "pricePerDay": 10,
-            "count": 8
-        },
-        {
-            "id": 3,
-            "type": "luxury",
-            "brand": "Mercedes",
-            "model": "Benz S class",
-            "constructionYear": 2022,
-            "numberOfSeats": 4,
-            "imageUrl": "https://thumbor.forbes.com/thumbor/fit-in/960x600/https://www.forbes.com/wheels/wp-content/uploads/2021/02/2021_Mercedes_S-Class_Gallery1.jpg",
-            "pricePerDay": 250,
-            "count": 2
-        },
-        {
-            "id": 4,
-            "type": "cargo",
-            "brand": "Ford",
-            "model": "Transit Connect van",
-            "constructionYear": 2022,
-            "numberOfSeats": 8,
-            "imageUrl": "https://static.tcimg.net/vehicles/primary/16f7ea220740b3cc/2022-Ford-Transit_Connect_Van-silver-full_color-driver_side_front_quarter.png?h=360&w=720",
-            "pricePerDay": 150,
-            "count": 3
-        },
-        {
-            "id": 5,
-            "type": "estate",
-            "brand": "Kia",
-            "model": "Ceed Sportswagon",
-            "constructionYear": 2022,
-            "numberOfSeats": 4,
-            "imageUrl": "https://www.kia.com/content/dam/kwcms/kme/uk/en/assets/static/nav22/Explore_range/CeedSW_Range_512x288.png",
-            "pricePerDay": 100,
-            "count": 6
-        }          
-    ],
-    "rents": []
+  "customers": [
+    {
+      "id": 1,
+      "fullName": "Daniel Totev",
+      "email": "dtotev1@gmail.com",
+      "passowrd": "pass123",
+      "phoneNumber": "+359123456789",
+      "isAdmin": true
+    },
+    {
+      "id": 2,
+      "fullName": "Test Testov",
+      "email": "test@gmail.com",
+      "passowrd": "pass456",
+      "phoneNumber": "+359123456789"
+    },
+    {
+      "id": 56,
+      "fullName": "Test",
+      "email": "test@gmail.com",
+      "passowrd": "pass123",
+      "phoneNumber": "+359123456789"
+    },
+    {
+      "fullName": "New",
+      "email": "new@gmail.com",
+      "passowrd": "pass123",
+      "phoneNumber": "+359123456789",
+      "id": 57
+    },
+    {
+      "fullName": "New test user",
+      "email": "New test user",
+      "phoneNumber": "+35987000000",
+      "password": "1234",
+      "id": 58
+    }
+  ],
+  "vehicles": [
+    {
+      "id": 1,
+      "type": "SUV",
+      "brand": "Volkswagen",
+      "model": "Taos",
+      "constructionYear": 2022,
+      "numberOfSeats": 4,
+      "imageUrl": "https://media.ed.edmunds-media.com/volkswagen/taos/2022/oem/2022_volkswagen_taos_4dr-suv_se_fq_oem_1_815.jpg",
+      "pricePerDay": 200,
+      "count": 4
+    },
+    {
+      "id": 2,
+      "type": "economy",
+      "brand": "Fiat",
+      "model": "Panda",
+      "constructionYear": 2009,
+      "numberOfSeats": 4,
+      "imageUrl": "https://th.bing.com/th/id/OIP.hESMsvkesbTuhUwR7gz9VwHaFj?pid=ImgDet&rs=1",
+      "pricePerDay": 10,
+      "count": 8
+    },
+    {
+      "id": 3,
+      "type": "luxury",
+      "brand": "Mercedes",
+      "model": "Benz S class",
+      "constructionYear": 2022,
+      "numberOfSeats": 4,
+      "imageUrl": "https://thumbor.forbes.com/thumbor/fit-in/960x600/https://www.forbes.com/wheels/wp-content/uploads/2021/02/2021_Mercedes_S-Class_Gallery1.jpg",
+      "pricePerDay": 250,
+      "count": 2
+    },
+    {
+      "id": 4,
+      "type": "cargo",
+      "brand": "Ford",
+      "model": "Transit Connect van",
+      "constructionYear": 2022,
+      "numberOfSeats": 8,
+      "imageUrl": "https://static.tcimg.net/vehicles/primary/16f7ea220740b3cc/2022-Ford-Transit_Connect_Van-silver-full_color-driver_side_front_quarter.png?h=360&w=720",
+      "pricePerDay": 150,
+      "count": 3
+    },
+    {
+      "id": 5,
+      "type": "estate",
+      "brand": "Kia",
+      "model": "Ceed Sportswagon",
+      "constructionYear": 2022,
+      "numberOfSeats": 4,
+      "imageUrl": "https://www.kia.com/content/dam/kwcms/kme/uk/en/assets/static/nav22/Explore_range/CeedSW_Range_512x288.png",
+      "pricePerDay": 100,
+      "count": 6
+    }
+  ],
+  "rents": []
 }
