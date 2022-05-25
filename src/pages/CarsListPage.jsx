@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import CarCard from "../components/cars/CarCard";
+import CarPopup from "../components/cars/CarPopup";
 import { loadCars } from "../util/carsUtils";
+import { useModal } from "../util/useModal";
 
 export default function CarsListPage() {
   const [cars, setCars] = useState([]);
+  const [showAddCarModal, closeAddCarModal, openAddCarModal] = useModal(false);
 
   useEffect(() => {
     loadCars().then((cars) => {
@@ -15,9 +18,28 @@ export default function CarsListPage() {
   return (
     <Container>
       <div
-        style={{ textAlign: "center", marginBottom: "2em", marginTop: "2em" }}
+        style={{
+          marginBottom: "2em",
+          marginTop: "2em",
+        }}
       >
-        <h1>Cars</h1>
+        <Row>
+          <Col md={{ span: 4, offset: 5 }}>
+            <h1>Cars</h1>
+          </Col>
+          <Col md={{ span: 1, offset: 2 }}>
+            <Button
+              style={{
+                backgroundColor: "#f60",
+                color: "white",
+                border: "none",
+              }}
+              onClick={openAddCarModal}
+            >
+              Add Car
+            </Button>
+          </Col>
+        </Row>
       </div>
       <Row>
         {cars.map((car) => (
@@ -26,6 +48,7 @@ export default function CarsListPage() {
           </Col>
         ))}
       </Row>
+      <CarPopup show={showAddCarModal} handleClose={closeAddCarModal} />
     </Container>
   );
 }
