@@ -9,3 +9,7 @@ export const registerCustomer = (customer) => {
     },
   });
 };
+
+export const loadAllCustomers = () => {
+  return fetch(apiUrl).then((res) => res.json());
+};
