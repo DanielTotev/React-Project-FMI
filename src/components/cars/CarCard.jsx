@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
 
-export default function CarCard({ car }) {
+export default function CarCard({ car, handleDeleteButtonClick }) {
   return (
     <Card style={{ height: "100%" }}>
       <Card.Img
@@ -22,7 +22,9 @@ export default function CarCard({ car }) {
         <Button variant="primary" style={{ marginRight: "10px" }}>
           Edit
         </Button>
-        <Button variant="danger">Delete</Button>
+        <Button variant="danger" onClick={() => handleDeleteButtonClick(car)}>
+          Delete
+        </Button>
       </Card.Body>
     </Card>
   );

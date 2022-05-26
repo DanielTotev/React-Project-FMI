@@ -13,3 +13,9 @@ export const addCar = (car) => {
     },
   });
 };
+
+export const deleteCar = (carId) => {
+  return fetch(`${apiUrl}/${carId}`, {
+    method: "DELETE",
+  });
+};

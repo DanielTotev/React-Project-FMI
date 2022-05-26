@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import CarCard from "../components/cars/CarCard";
+import CarDeletePopup from "../components/cars/CarDeletePopup";
 import CarPopup from "../components/cars/CarPopup";
 import { loadCars } from "../util/carsUtils";
 import { useModal } from "../util/useModal";
@@ -8,10 +9,19 @@ import { useModal } from "../util/useModal";
 export default function CarsListPage() {
   const [cars, setCars] = useState([]);
   const [showAddCarModal, closeAddCarModal, openAddCarModal] = useModal(false);
+  const [selectedCar, setSelectedCar] = useState({});
+  const [showDeleteCarModel, closeDeleteCarModal, openDeleteCarModal] =
+    useModal(false);
+
   const loadCarsArray = () => {
     loadCars().then((cars) => {
       setCars(cars);
     });
+  };
+
+  const handleDeleteButtonClick = (car) => {
+    setSelectedCar(car);
+    openDeleteCarModal();
   };
 
   useEffect(() => {
@@ -47,7 +57,10 @@ export default function CarsListPage() {
       <Row>
         {cars.map((car) => (
           <Col md="3" key={car.id} style={{ marginTop: "20px" }}>
-            <CarCard car={car} />
+            <CarCard
+              car={car}
+              handleDeleteButtonClick={handleDeleteButtonClick}
+            />
           </Col>
         ))}
       </Row>
@@ -58,6 +71,12 @@ export default function CarsListPage() {
           submitAction={loadCarsArray}
         />
       )}
+      <CarDeletePopup
+        show={showDeleteCarModel}
+        onHide={closeDeleteCarModal}
+        car={selectedCar}
+        deleteCleanup={loadCarsArray}
+      />
     </Container>
   );
 }
