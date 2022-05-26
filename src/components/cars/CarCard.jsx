@@ -1,17 +1,28 @@
 import React from "react";
-import { Card } from "react-bootstrap";
+import { Card, Button } from "react-bootstrap";
 
 export default function CarCard({ car }) {
   return (
     <Card style={{ height: "100%" }}>
-      <Card.Img variant="top" src={`${car.imageUrl}`} alt="carImage" />
+      <Card.Img
+        variant="top"
+        src={`${car.imageUrl}`}
+        style={{ height: "200px" }}
+        alt="carImage"
+      />
       <Card.Body>
         <Card.Title>{`${car.brand} ${car.model}`}</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-        {/* <Button variant="primary">Go somewhere</Button> */}
+        <p>Type: {car.type}</p>
+        <p>Construction year: {car.constructionYear}</p>
+        <p>Price per day: {car.pricePerDay} BGN</p>
+        <p>Available cars: {car.count}</p>
+        <Button className="orange-button" style={{ marginRight: "10px" }}>
+          Rent
+        </Button>
+        <Button variant="primary" style={{ marginRight: "10px" }}>
+          Edit
+        </Button>
+        <Button variant="danger">Delete</Button>
       </Card.Body>
     </Card>
   );

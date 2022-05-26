@@ -1,1 +1,7 @@
 @import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+.orange-button {
+    background-color: rgb(255, 102, 0); 
+    color: white; 
+    border: none;
+}
