@@ -6,6 +6,8 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import CarsListPage from "./pages/CarsListPage";
 import CustomersListPage from "./pages/CustomersListPage";
+import UserLoggedInGuard from "./util/guards/UserLoggedInGuard";
+import UserNotAuthenticatedGuard from "./util/guards/UserNotAuthenticatedGuard";
 
 function App() {
   return (
@@ -13,10 +15,38 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<HomePge />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/cars" element={<CarsListPage />} />
-        <Route path="/customers" element={<CustomersListPage />} />
+        <Route
+          path="/login"
+          element={
+            <UserNotAuthenticatedGuard>
+              <LoginPage />
+            </UserNotAuthenticatedGuard>
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <UserNotAuthenticatedGuard>
+              <RegisterPage />
+            </UserNotAuthenticatedGuard>
+          }
+        />
+        <Route
+          path="/cars"
+          element={
+            <UserLoggedInGuard>
+              <CarsListPage />
+            </UserLoggedInGuard>
+          }
+        />
+        <Route
+          path="/customers"
+          element={
+            <UserLoggedInGuard>
+              <CustomersListPage />
+            </UserLoggedInGuard>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );
