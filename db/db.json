@@ -4,7 +4,7 @@
       "id": 1,
       "fullName": "Daniel Totev",
       "email": "dtotev1@gmail.com",
-      "passowrd": "pass123",
+      "password": "pass123",
       "phoneNumber": "+359123456789",
       "isAdmin": true
     },
@@ -12,20 +12,20 @@
       "id": 2,
       "fullName": "Test Testov",
       "email": "test@gmail.com",
-      "passowrd": "pass456",
+      "password": "pass456",
       "phoneNumber": "+359123456789"
     },
     {
       "id": 56,
       "fullName": "Test",
       "email": "test@gmail.com",
-      "passowrd": "pass123",
+      "password": "pass123",
       "phoneNumber": "+359123456789"
     },
     {
       "fullName": "New",
       "email": "new@gmail.com",
-      "passowrd": "pass123",
+      "password": "pass123",
       "phoneNumber": "+359123456789",
       "id": 57
     },
