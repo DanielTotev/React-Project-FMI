@@ -106,10 +106,11 @@
       "type": "economy",
       "fuelType": "petrol",
       "numberOfSeats": "4",
-      "pricePerDay": "25",
+      "pricePerDay": "50",
       "count": "6",
       "imageUrl": "https://autosbangla.com/images/toyota/toyota-yaris-1-5l-img1.jpg",
-      "id": 7
+      "id": 7,
+      "constructionYear": "2022"
     },
     {
       "brand": "Ferrari",
@@ -120,7 +121,8 @@
       "pricePerDay": "150",
       "count": "3",
       "imageUrl": "https://th.bing.com/th/id/R.bc5c521a182b7ab8ebc155a4a77b8137?rik=Qg4Yg35%2f0mvk3Q&pid=ImgRaw&r=0",
-      "id": 8
+      "id": 8,
+      "constructionYear": "2019"
     },
     {
       "brand": "Skoda",
@@ -131,7 +133,8 @@
       "pricePerDay": "80",
       "count": "2",
       "imageUrl": "https://th.bing.com/th/id/OIP.9z_icAoQtYR5maC1lQ_tkgHaEh?pid=ImgDet&rs=1",
-      "id": 9
+      "id": 9,
+      "constructionYear": "2022"
     },
     {
       "brand": "Toyota",

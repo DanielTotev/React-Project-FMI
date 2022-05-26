@@ -19,3 +19,13 @@ export const deleteCar = (carId) => {
     method: "DELETE",
   });
 };
+
+export const editCar = (car) => {
+  return fetch(`${apiUrl}/${car.id}`, {
+    method: "PUT",
+    body: JSON.stringify(car),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+};

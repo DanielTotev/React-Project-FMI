@@ -3,7 +3,7 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 import CarCard from "../components/cars/CarCard";
 import CarDeletePopup from "../components/cars/CarDeletePopup";
 import CarPopup from "../components/cars/CarPopup";
-import { loadCars } from "../util/carsUtils";
+import { addCar, editCar, loadCars } from "../util/carsUtils";
 import { useModal } from "../util/useModal";
 
 export default function CarsListPage() {
@@ -12,16 +12,32 @@ export default function CarsListPage() {
   const [selectedCar, setSelectedCar] = useState({});
   const [showDeleteCarModel, closeDeleteCarModal, openDeleteCarModal] =
     useModal(false);
-
+  const [showEditCarModal, closeEditCarModal, openEditCarModal] =
+    useModal(false);
   const loadCarsArray = () => {
     loadCars().then((cars) => {
       setCars(cars);
     });
   };
-
+  const handleEditButtonClick = (car) => {
+    setSelectedCar(car);
+    openEditCarModal();
+  };
   const handleDeleteButtonClick = (car) => {
     setSelectedCar(car);
     openDeleteCarModal();
+  };
+  const handleAddCar = (carData) => {
+    addCar(carData).then(() => {
+      loadCarsArray();
+      closeAddCarModal();
+    });
+  };
+  const handleEditCar = (carData) => {
+    editCar(carData).then(() => {
+      loadCarsArray();
+      closeEditCarModal();
+    });
   };
 
   useEffect(() => {
@@ -60,6 +76,7 @@ export default function CarsListPage() {
             <CarCard
               car={car}
               handleDeleteButtonClick={handleDeleteButtonClick}
+              handleEditButtonClick={handleEditButtonClick}
             />
           </Col>
         ))}
@@ -68,7 +85,18 @@ export default function CarsListPage() {
         <CarPopup
           show={showAddCarModal}
           handleClose={closeAddCarModal}
-          submitAction={loadCarsArray}
+          submitAction={handleAddCar}
+          title="Add car"
+          car={{}}
+        />
+      )}
+      {showEditCarModal && selectedCar && (
+        <CarPopup
+          show={showEditCarModal}
+          handleClose={closeEditCarModal}
+          submitAction={handleEditCar}
+          title="Edit car"
+          car={selectedCar}
         />
       )}
       <CarDeletePopup

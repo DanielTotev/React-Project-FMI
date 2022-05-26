@@ -1,31 +1,37 @@
 import { Modal, Button, Form } from "react-bootstrap";
 import React from "react";
 import { useFormState } from "../../util/useFormState";
-import { addCar } from "../../util/carsUtils";
 
-export default function CarPopup({ show, handleClose, submitAction }) {
-  const [formState, handleInputChange] = useFormState({
-    brand: "",
-    model: "",
-    type: "economy",
-    fuelType: "petrol",
-    numberOfSeats: 0,
-    pricePerDay: 0,
-    count: 0,
-    imageUrl: "",
-    constructionYear: 2022,
-  });
+export default function CarPopup({
+  show,
+  handleClose,
+  submitAction,
+  title,
+  car,
+}) {
+  const [formState, handleInputChange] = useFormState(
+    Object.keys(car).length > 0
+      ? car
+      : {
+          brand: "",
+          model: "",
+          type: "economy",
+          fuelType: "petrol",
+          numberOfSeats: 0,
+          pricePerDay: 0,
+          count: 0,
+          imageUrl: "",
+          constructionYear: 2022,
+        }
+  );
   const handleSubmit = (e) => {
     e.preventDefault();
-    addCar(formState).then(() => {
-      submitAction();
-      handleClose();
-    });
+    submitAction(formState);
   };
   return (
     <Modal show={show} onHide={handleClose}>
       <Modal.Header closeButton>
-        <Modal.Title>Add Car</Modal.Title>
+        <Modal.Title>{title}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form onSubmit={handleSubmit}>
