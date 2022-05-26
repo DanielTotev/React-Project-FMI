@@ -132,6 +132,18 @@
       "count": "2",
       "imageUrl": "https://th.bing.com/th/id/OIP.9z_icAoQtYR5maC1lQ_tkgHaEh?pid=ImgDet&rs=1",
       "id": 9
+    },
+    {
+      "brand": "Toyota",
+      "model": "Corola",
+      "type": "economy",
+      "fuelType": "hybrid",
+      "numberOfSeats": "4",
+      "pricePerDay": "60",
+      "count": "4",
+      "imageUrl": "https://th.bing.com/th/id/R.76853122c0ce8cea2211d753f4dc20dd?rik=1xZBiYcrXVwchw&pid=ImgRaw&r=0",
+      "constructionYear": "2019",
+      "id": 10
     }
   ],
   "rents": []

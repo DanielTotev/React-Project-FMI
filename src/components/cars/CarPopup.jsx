@@ -13,6 +13,7 @@ export default function CarPopup({ show, handleClose, submitAction }) {
     pricePerDay: 0,
     count: 0,
     imageUrl: "",
+    constructionYear: 2022,
   });
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -44,6 +45,15 @@ export default function CarPopup({ show, handleClose, submitAction }) {
               value={formState.model}
               onChange={handleInputChange}
               type="text"
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="constructionYear">
+            <Form.Label>Construction Year</Form.Label>
+            <Form.Control
+              name="constructionYear"
+              value={formState.constructionYear}
+              onChange={handleInputChange}
+              type="number"
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="type">
