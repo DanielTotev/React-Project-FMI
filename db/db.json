@@ -35,6 +35,13 @@
       "phoneNumber": "+35987000000",
       "password": "1234",
       "id": 58
+    },
+    {
+      "fullName": "test",
+      "email": "test",
+      "phoneNumber": "1234",
+      "password": "1234",
+      "id": 59
     }
   ],
   "vehicles": [
@@ -92,6 +99,39 @@
       "imageUrl": "https://www.kia.com/content/dam/kwcms/kme/uk/en/assets/static/nav22/Explore_range/CeedSW_Range_512x288.png",
       "pricePerDay": 100,
       "count": 6
+    },
+    {
+      "brand": "Toyota",
+      "model": "Yaris",
+      "type": "economy",
+      "fuelType": "petrol",
+      "numberOfSeats": "4",
+      "pricePerDay": "25",
+      "count": "6",
+      "imageUrl": "https://autosbangla.com/images/toyota/toyota-yaris-1-5l-img1.jpg",
+      "id": 7
+    },
+    {
+      "brand": "Ferrari",
+      "model": "812",
+      "type": "luxury",
+      "fuelType": "petrol",
+      "numberOfSeats": "4",
+      "pricePerDay": "150",
+      "count": "3",
+      "imageUrl": "https://th.bing.com/th/id/R.bc5c521a182b7ab8ebc155a4a77b8137?rik=Qg4Yg35%2f0mvk3Q&pid=ImgRaw&r=0",
+      "id": 8
+    },
+    {
+      "brand": "Skoda",
+      "model": "Octavia",
+      "type": "economy",
+      "fuelType": "diesel",
+      "numberOfSeats": "4",
+      "pricePerDay": "80",
+      "count": "2",
+      "imageUrl": "https://th.bing.com/th/id/OIP.9z_icAoQtYR5maC1lQ_tkgHaEh?pid=ImgDet&rs=1",
+      "id": 9
     }
   ],
   "rents": []

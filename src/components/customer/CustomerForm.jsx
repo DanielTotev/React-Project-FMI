@@ -30,7 +30,7 @@ export default function CustomerForm({ submitAction }) {
               value={formState.fullName}
               onChange={handleInputChange}
               type="text"
-              placeholder="Enter your name her"
+              placeholder="Enter your name here"
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicEmail">

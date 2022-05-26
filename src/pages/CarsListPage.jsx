@@ -8,11 +8,14 @@ import { useModal } from "../util/useModal";
 export default function CarsListPage() {
   const [cars, setCars] = useState([]);
   const [showAddCarModal, closeAddCarModal, openAddCarModal] = useModal(false);
-
-  useEffect(() => {
+  const loadCarsArray = () => {
     loadCars().then((cars) => {
       setCars(cars);
     });
+  };
+
+  useEffect(() => {
+    loadCarsArray();
   }, []);
 
   return (
@@ -48,7 +51,13 @@ export default function CarsListPage() {
           </Col>
         ))}
       </Row>
-      <CarPopup show={showAddCarModal} handleClose={closeAddCarModal} />
+      {showAddCarModal && (
+        <CarPopup
+          show={showAddCarModal}
+          handleClose={closeAddCarModal}
+          submitAction={loadCarsArray}
+        />
+      )}
     </Container>
   );
 }
