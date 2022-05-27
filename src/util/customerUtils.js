@@ -35,3 +35,9 @@ export const getCurrentUser = () => {
 export const logout = () => {
   localStorage.removeItem("user");
 };
+
+export const deleteCustomer = (customerId) => {
+  return fetch(`${apiUrl}/${customerId}`, {
+    method: "DELETE",
+  });
+};
