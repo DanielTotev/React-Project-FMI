@@ -8,6 +8,7 @@ import CarsListPage from "./pages/CarsListPage";
 import CustomersListPage from "./pages/CustomersListPage";
 import UserLoggedInGuard from "./util/guards/UserLoggedInGuard";
 import UserNotAuthenticatedGuard from "./util/guards/UserNotAuthenticatedGuard";
+import CarRentalPage from "./pages/CarRentalPage";
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
             </UserLoggedInGuard>
           }
         />
+        <Route path="/cars/:carId/rent" element={<CarRentalPage />} />
       </Routes>
     </BrowserRouter>
   );
