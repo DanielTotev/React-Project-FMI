@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Container, Table } from "react-bootstrap";
 import CustomerDeletePopup from "../components/customer/CustomerDeletePopup";
+import CustomerEditPopup from "../components/customer/CustomerEditPopup";
 import { loadAllCustomers } from "../util/customerUtils";
 import { useModal } from "./../util/useModal";
 
@@ -12,10 +13,17 @@ export default function CustomersListPage() {
     closeDeleteCustomerModal,
     openDeleteCustomerModal,
   ] = useModal(false);
+  const [showEditCustomerModal, closeEditCustomerModal, openEditCustomerModal] =
+    useModal(false);
 
   const openDeletePopup = (customer) => {
     setSelectedCustomer(customer);
     openDeleteCustomerModal();
+  };
+
+  const openEditPopup = (customer) => {
+    setSelectedCustomer(customer);
+    openEditCustomerModal();
   };
 
   const loadCustomers = () => {
@@ -55,6 +63,7 @@ export default function CustomersListPage() {
                     color: "#0d6efd",
                     cursor: "pointer",
                   }}
+                  onClick={() => openEditPopup(customer)}
                 ></i>
                 <i
                   className="fa-solid fa-trash-can"
@@ -75,6 +84,14 @@ export default function CustomersListPage() {
         show={showDeleteCustomerModal}
         deleteCleanup={loadCustomers}
       />
+      {showEditCustomerModal && (
+        <CustomerEditPopup
+          customer={selectedCustomer}
+          handleClose={closeEditCustomerModal}
+          show={showEditCustomerModal}
+          submitCleanUp={loadCustomers}
+        />
+      )}
     </Container>
   );
 }

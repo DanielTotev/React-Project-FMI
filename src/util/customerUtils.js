@@ -41,3 +41,13 @@ export const deleteCustomer = (customerId) => {
     method: "DELETE",
   });
 };
+
+export const editCustomer = (customer) => {
+  return fetch(`${apiUrl}/${customer.id}`, {
+    method: "PUT",
+    body: JSON.stringify(customer),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+};
