@@ -29,3 +29,6 @@ export const editCar = (car) => {
     },
   });
 };
+
+export const loadCarById = (carId) =>
+  fetch(`${apiUrl}?id=${carId}`).then((res) => res.json());

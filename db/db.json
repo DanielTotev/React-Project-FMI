@@ -40,7 +40,7 @@
       "numberOfSeats": 4,
       "imageUrl": "https://media.ed.edmunds-media.com/volkswagen/taos/2022/oem/2022_volkswagen_taos_4dr-suv_se_fq_oem_1_815.jpg",
       "pricePerDay": 200,
-      "count": 4
+      "count": 3
     },
     {
       "id": 2,
@@ -51,7 +51,7 @@
       "numberOfSeats": 4,
       "imageUrl": "https://th.bing.com/th/id/OIP.hESMsvkesbTuhUwR7gz9VwHaFj?pid=ImgDet&rs=1",
       "pricePerDay": 10,
-      "count": 8
+      "count": 7
     },
     {
       "id": 3,
@@ -62,7 +62,7 @@
       "numberOfSeats": 4,
       "imageUrl": "https://thumbor.forbes.com/thumbor/fit-in/960x600/https://www.forbes.com/wheels/wp-content/uploads/2021/02/2021_Mercedes_S-Class_Gallery1.jpg",
       "pricePerDay": 250,
-      "count": 2
+      "count": 1
     },
     {
       "id": 4,
@@ -117,7 +117,7 @@
       "fuelType": "diesel",
       "numberOfSeats": "4",
       "pricePerDay": "80",
-      "count": "2",
+      "count": 1,
       "imageUrl": "https://th.bing.com/th/id/OIP.9z_icAoQtYR5maC1lQ_tkgHaEh?pid=ImgDet&rs=1",
       "id": 9,
       "constructionYear": "2022"
@@ -135,5 +135,107 @@
       "id": 10
     }
   ],
-  "rents": []
+  "rents": [
+    {
+      "startDate": "2022-06-30T21:00:00.000Z",
+      "endDate": "2022-07-01T21:00:00.000Z",
+      "car": {
+        "id": 3,
+        "type": "luxury",
+        "brand": "Mercedes",
+        "model": "Benz S class",
+        "constructionYear": 2022,
+        "numberOfSeats": 4,
+        "imageUrl": "https://thumbor.forbes.com/thumbor/fit-in/960x600/https://www.forbes.com/wheels/wp-content/uploads/2021/02/2021_Mercedes_S-Class_Gallery1.jpg",
+        "pricePerDay": 250,
+        "count": 1
+      },
+      "customer": {
+        "id": 1,
+        "fullName": "Daniel Totev",
+        "email": "dtotev1@gmail.com",
+        "password": "pass123",
+        "phoneNumber": "+359123456789",
+        "isAdmin": true
+      },
+      "total": 250,
+      "id": 1
+    },
+    {
+      "startDate": "2022-05-09T21:00:00.000Z",
+      "endDate": "2022-05-15T21:00:00.000Z",
+      "car": {
+        "id": 2,
+        "type": "economy",
+        "brand": "Fiat",
+        "model": "Panda",
+        "constructionYear": 2009,
+        "numberOfSeats": 4,
+        "imageUrl": "https://th.bing.com/th/id/OIP.hESMsvkesbTuhUwR7gz9VwHaFj?pid=ImgDet&rs=1",
+        "pricePerDay": 10,
+        "count": 7
+      },
+      "customer": {
+        "id": 1,
+        "fullName": "Daniel Totev",
+        "email": "dtotev1@gmail.com",
+        "password": "pass123",
+        "phoneNumber": "+359123456789",
+        "isAdmin": true
+      },
+      "total": 55.8,
+      "id": 2
+    },
+    {
+      "startDate": "2022-05-08T21:00:00.000Z",
+      "endDate": "2022-05-10T21:00:00.000Z",
+      "car": {
+        "id": 1,
+        "type": "SUV",
+        "brand": "Volkswagen",
+        "model": "Taos",
+        "constructionYear": 2022,
+        "numberOfSeats": 4,
+        "imageUrl": "https://media.ed.edmunds-media.com/volkswagen/taos/2022/oem/2022_volkswagen_taos_4dr-suv_se_fq_oem_1_815.jpg",
+        "pricePerDay": 200,
+        "count": 3
+      },
+      "customer": {
+        "id": 1,
+        "fullName": "Daniel Totev",
+        "email": "dtotev1@gmail.com",
+        "password": "pass123",
+        "phoneNumber": "+359123456789",
+        "isAdmin": true
+      },
+      "total": 400,
+      "id": 3
+    },
+    {
+      "startDate": "2022-05-11T21:00:00.000Z",
+      "endDate": "2022-05-15T21:00:00.000Z",
+      "car": {
+        "brand": "Skoda",
+        "model": "Octavia",
+        "type": "economy",
+        "fuelType": "diesel",
+        "numberOfSeats": "4",
+        "pricePerDay": "80",
+        "count": 1,
+        "imageUrl": "https://th.bing.com/th/id/OIP.9z_icAoQtYR5maC1lQ_tkgHaEh?pid=ImgDet&rs=1",
+        "id": 9,
+        "constructionYear": "2022"
+      },
+      "customer": {
+        "id": 1,
+        "fullName": "Daniel Totev",
+        "email": "dtotev1@gmail.com",
+        "password": "pass123",
+        "phoneNumber": "+359123456789",
+        "isAdmin": true
+      },
+      "total": 304,
+      "id": 4
+    }
+  ]
 }
