@@ -6,7 +6,10 @@ import { useFormState } from "../util/useFormState";
 import DatePicker from "react-datepicker";
 import moment from "moment";
 import { getCurrentUser } from "../util/customerUtils";
-import { addRent } from "../util/rentsUtils";
+import {
+  addRent,
+  getRentsForThePast90DaysForCurrentUser,
+} from "../util/rentsUtils";
 import { useNavigate } from "react-router-dom";
 
 export default function CarRentalPage() {
@@ -16,11 +19,19 @@ export default function CarRentalPage() {
     startDate: "",
     endDate: "",
   });
+  const [rentsInThePast90Days, setRentsInThePast90Days] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
     loadCarById(carId).then((cars) => setCar(cars[0]));
   }, [carId]);
+
+  useEffect(() => {
+    getRentsForThePast90DaysForCurrentUser().then((rents) => {
+      console.log(rents);
+      setRentsInThePast90Days(rents);
+    });
+  }, []);
 
   const calculateDifferenceBetweenStartDateAndEndDate = () => {
     const startDateMoment = moment(formState.startDate);
@@ -29,6 +40,9 @@ export default function CarRentalPage() {
   };
 
   const calculateDiscount = () => {
+    if (rentsInThePast90Days.length > 3) {
+      return 15;
+    }
     const daysDifference = calculateDifferenceBetweenStartDateAndEndDate();
     if (daysDifference > 10) {
       return 10;
@@ -158,6 +172,10 @@ export default function CarRentalPage() {
                 {calculateDiscount() === 0
                   ? "No discount"
                   : `${calculateDiscount()} %`}
+              </span>
+              <br />
+              <span>
+                {rentsInThePast90Days.length > 3 ? "VIP CUSTOMER" : ""}
               </span>
             </div>
             {formState.startDate && formState.endDate && (

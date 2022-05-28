@@ -73,7 +73,7 @@
       "numberOfSeats": 8,
       "imageUrl": "https://static.tcimg.net/vehicles/primary/16f7ea220740b3cc/2022-Ford-Transit_Connect_Van-silver-full_color-driver_side_front_quarter.png?h=360&w=720",
       "pricePerDay": 150,
-      "count": 3
+      "count": 2
     },
     {
       "id": 5,
@@ -236,6 +236,31 @@
       },
       "total": 304,
       "id": 4
+    },
+    {
+      "startDate": "2022-04-03T21:00:00.000Z",
+      "endDate": "2022-04-10T21:00:00.000Z",
+      "car": {
+        "id": 4,
+        "type": "cargo",
+        "brand": "Ford",
+        "model": "Transit Connect van",
+        "constructionYear": 2022,
+        "numberOfSeats": 8,
+        "imageUrl": "https://static.tcimg.net/vehicles/primary/16f7ea220740b3cc/2022-Ford-Transit_Connect_Van-silver-full_color-driver_side_front_quarter.png?h=360&w=720",
+        "pricePerDay": 150,
+        "count": 2
+      },
+      "customer": {
+        "id": 1,
+        "fullName": "Daniel Totev",
+        "email": "dtotev1@gmail.com",
+        "password": "pass123",
+        "phoneNumber": "+359123456789",
+        "isAdmin": true
+      },
+      "total": 976.4999999999999,
+      "id": 5
     }
   ]
 }
