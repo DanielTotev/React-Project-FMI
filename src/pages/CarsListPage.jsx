@@ -4,6 +4,7 @@ import CarCard from "../components/cars/CarCard";
 import CarDeletePopup from "../components/cars/CarDeletePopup";
 import CarPopup from "../components/cars/CarPopup";
 import { addCar, editCar, loadCars } from "../util/carsUtils";
+import UserIsAdminElementGuard from "../util/guards/UserIsAdminElementGuard";
 import { useModal } from "../util/useModal";
 
 export default function CarsListPage() {
@@ -57,16 +58,18 @@ export default function CarsListPage() {
             <h1>Cars</h1>
           </Col>
           <Col md={{ span: 1, offset: 2 }}>
-            <Button
-              style={{
-                backgroundColor: "#f60",
-                color: "white",
-                border: "none",
-              }}
-              onClick={openAddCarModal}
-            >
-              Add Car
-            </Button>
+            <UserIsAdminElementGuard>
+              <Button
+                style={{
+                  backgroundColor: "#f60",
+                  color: "white",
+                  border: "none",
+                }}
+                onClick={openAddCarModal}
+              >
+                Add Car
+              </Button>
+            </UserIsAdminElementGuard>
           </Col>
         </Row>
       </div>

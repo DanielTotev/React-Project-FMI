@@ -4,6 +4,7 @@ import CustomerDeletePopup from "../components/customer/CustomerDeletePopup";
 import CustomerEditPopup from "../components/customer/CustomerEditPopup";
 import { loadAllCustomers } from "../util/customerUtils";
 import { useModal } from "./../util/useModal";
+import UserIsAdminElementGuard from "../util/guards/UserIsAdminElementGuard";
 
 export default function CustomersListPage() {
   const [customers, setCustomers] = useState([]);
@@ -45,7 +46,9 @@ export default function CustomersListPage() {
         <thead>
           <tr>
             <th>#</th>
-            <th>Actions</th>
+            <UserIsAdminElementGuard>
+              <th>Actions</th>
+            </UserIsAdminElementGuard>
             <th>Full Name</th>
             <th>Email</th>
             <th>Phone Number</th>
@@ -55,22 +58,24 @@ export default function CustomersListPage() {
           {customers.map((customer) => (
             <tr key={customer.id}>
               <td>{customer.id}</td>
-              <td>
-                <i
-                  className="fa fa-pencil"
-                  style={{
-                    margin: "0 10px",
-                    color: "#0d6efd",
-                    cursor: "pointer",
-                  }}
-                  onClick={() => openEditPopup(customer)}
-                ></i>
-                <i
-                  className="fa-solid fa-trash-can"
-                  style={{ color: "#dc3545", cursor: "pointer" }}
-                  onClick={() => openDeletePopup(customer)}
-                ></i>
-              </td>
+              <UserIsAdminElementGuard>
+                <td>
+                  <i
+                    className="fa fa-pencil"
+                    style={{
+                      margin: "0 10px",
+                      color: "#0d6efd",
+                      cursor: "pointer",
+                    }}
+                    onClick={() => openEditPopup(customer)}
+                  ></i>
+                  <i
+                    className="fa-solid fa-trash-can"
+                    style={{ color: "#dc3545", cursor: "pointer" }}
+                    onClick={() => openDeletePopup(customer)}
+                  ></i>
+                </td>
+              </UserIsAdminElementGuard>
               <td>{customer.fullName}</td>
               <td>{customer.email}</td>
               <td>{customer.phoneNumber}</td>

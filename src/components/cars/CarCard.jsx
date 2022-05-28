@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
+import UserIsAdminElementGuard from "../../util/guards/UserIsAdminElementGuard";
 
 export default function CarCard({
   car,
@@ -23,16 +24,18 @@ export default function CarCard({
         <Button className="orange-button" style={{ marginRight: "10px" }}>
           Rent
         </Button>
-        <Button
-          variant="primary"
-          style={{ marginRight: "10px" }}
-          onClick={() => handleEditButtonClick(car)}
-        >
-          Edit
-        </Button>
-        <Button variant="danger" onClick={() => handleDeleteButtonClick(car)}>
-          Delete
-        </Button>
+        <UserIsAdminElementGuard>
+          <Button
+            variant="primary"
+            style={{ marginRight: "10px" }}
+            onClick={() => handleEditButtonClick(car)}
+          >
+            Edit
+          </Button>
+          <Button variant="danger" onClick={() => handleDeleteButtonClick(car)}>
+            Delete
+          </Button>
+        </UserIsAdminElementGuard>
       </Card.Body>
     </Card>
   );
