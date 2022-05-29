@@ -124,7 +124,7 @@
       "fuelType": "diesel",
       "numberOfSeats": "4",
       "pricePerDay": "80",
-      "count": 1,
+      "count": 0,
       "imageUrl": "https://th.bing.com/th/id/OIP.9z_icAoQtYR5maC1lQ_tkgHaEh?pid=ImgDet&rs=1",
       "id": 9,
       "constructionYear": "2022"
@@ -268,6 +268,32 @@
       },
       "total": 976.4999999999999,
       "id": 5
+    },
+    {
+      "startDate": "2022-05-08T21:00:00.000Z",
+      "endDate": "2022-05-16T21:00:00.000Z",
+      "car": {
+        "brand": "Skoda",
+        "model": "Octavia",
+        "type": "economy",
+        "fuelType": "diesel",
+        "numberOfSeats": "4",
+        "pricePerDay": "80",
+        "count": 0,
+        "imageUrl": "https://th.bing.com/th/id/OIP.9z_icAoQtYR5maC1lQ_tkgHaEh?pid=ImgDet&rs=1",
+        "id": 9,
+        "constructionYear": "2022"
+      },
+      "customer": {
+        "id": 1,
+        "fullName": "Daniel Totev",
+        "email": "dtotev1@gmail.com",
+        "password": "pass123",
+        "phoneNumber": "+359123456789",
+        "isAdmin": true
+      },
+      "total": 544,
+      "id": 6
     }
   ]
 }

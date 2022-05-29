@@ -192,13 +192,17 @@ export default function CarRentalPage() {
                 <span>Total: {calculateTotal()}</span>
               </div>
             )}
-            <Button
-              className="orange-button"
-              type="submit"
-              style={{ float: "right" }}
-            >
-              Submit Rent
-            </Button>
+            {car.count > 0 ? (
+              <Button
+                className="orange-button"
+                type="submit"
+                style={{ float: "right" }}
+              >
+                Submit Rent
+              </Button>
+            ) : (
+              <span style={{ float: "right" }}>Car unavailable</span>
+            )}
           </Form>
         </Col>
       </Row>
