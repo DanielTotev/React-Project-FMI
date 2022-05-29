@@ -201,7 +201,7 @@ export default function CarRentalPage() {
                 Submit Rent
               </Button>
             ) : (
-              <span style={{ float: "right" }}>Car unavailable</span>
+              <span style={{ float: "right" }}>Car not available</span>
             )}
           </Form>
         </Col>
