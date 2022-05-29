@@ -1,15 +1,28 @@
 import React from "react";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import { useFormState } from "../../util/useFormState";
+import { equalTo, isEmail, notEmpty } from "../../util/validators";
 
 export default function CustomerForm({ submitAction }) {
-  const [formState, handleInputChange] = useFormState({
-    fullName: "",
-    email: "",
-    phoneNumber: "",
-    password: "",
-    repeatPassword: "",
-  });
+  const [formState, handleInputChange, errors, touched] = useFormState(
+    {
+      fullName: "",
+      email: "",
+      phoneNumber: "",
+      password: "",
+      repeatPassword: "",
+    },
+    {
+      fullName: [notEmpty],
+      email: [notEmpty, isEmail],
+      phoneNumber: [notEmpty],
+      password: [notEmpty],
+      repeatPassword: [
+        notEmpty,
+        (value, formState) => equalTo(value, formState, "password"),
+      ],
+    }
+  );
   const handleSubmit = (e) => {
     e.preventDefault();
     submitAction({
@@ -23,7 +36,7 @@ export default function CustomerForm({ submitAction }) {
     <Row>
       <Col md={{ span: 4, offset: 4 }}>
         <Form onSubmit={handleSubmit}>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Group className="mb-3" controlId="fullName">
             <Form.Label>Full Name</Form.Label>
             <Form.Control
               name="fullName"
@@ -32,6 +45,9 @@ export default function CustomerForm({ submitAction }) {
               type="text"
               placeholder="Enter your name here"
             />
+            {errors.fullName && (
+              <Form.Text style={{ color: "red" }}>{errors.fullName}</Form.Text>
+            )}
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
@@ -42,9 +58,9 @@ export default function CustomerForm({ submitAction }) {
               value={formState.email}
               onChange={handleInputChange}
             />
-            <Form.Text className="text-muted">
-              We'll never share your email with anyone else.
-            </Form.Text>
+            {errors.email && (
+              <Form.Text style={{ color: "red" }}>{errors.email}</Form.Text>
+            )}
           </Form.Group>
           <Form.Group className="mb-3" controlId="phoneNumber">
             <Form.Label>Phone Number</Form.Label>
@@ -55,6 +71,11 @@ export default function CustomerForm({ submitAction }) {
               value={formState.phoneNumber}
               onChange={handleInputChange}
             />
+            {errors.phoneNumber && (
+              <Form.Text style={{ color: "red" }}>
+                {errors.phoneNumber}
+              </Form.Text>
+            )}
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
@@ -65,6 +86,9 @@ export default function CustomerForm({ submitAction }) {
               value={formState.password}
               onChange={handleInputChange}
             />
+            {errors.password && (
+              <Form.Text style={{ color: "red" }}>{errors.password}</Form.Text>
+            )}
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicRepeatPassword">
             <Form.Label>Repeat Password</Form.Label>
@@ -75,8 +99,18 @@ export default function CustomerForm({ submitAction }) {
               value={formState.repeatPassword}
               onChange={handleInputChange}
             />
+            {errors.repeatPassword && (
+              <Form.Text style={{ color: "red" }}>
+                {errors.repeatPassword}
+              </Form.Text>
+            )}
           </Form.Group>
-          <Button variant="primary" type="submit" style={{ float: "right" }}>
+          <Button
+            variant="primary"
+            type="submit"
+            style={{ float: "right" }}
+            disabled={!(touched && Object.keys(errors).length == 0)}
+          >
             Submit
           </Button>
         </Form>
