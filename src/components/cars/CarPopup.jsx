@@ -1,6 +1,7 @@
 import { Modal, Button, Form } from "react-bootstrap";
 import React from "react";
 import { useFormState } from "../../util/useFormState";
+import { greaterThan, notEmpty, oneOf } from "../../util/validators";
 
 export default function CarPopup({
   show,
@@ -9,7 +10,7 @@ export default function CarPopup({
   title,
   car,
 }) {
-  const [formState, handleInputChange] = useFormState(
+  const initalFormState =
     Object.keys(car).length > 0
       ? car
       : {
@@ -22,7 +23,25 @@ export default function CarPopup({
           count: 0,
           imageUrl: "",
           constructionYear: 2022,
-        }
+        };
+  const [formState, handleInputChange, errors, touched] = useFormState(
+    initalFormState,
+    {
+      brand: [notEmpty],
+      model: [notEmpty],
+      type: [
+        (value) =>
+          oneOf(value, ["economy", "estate", "luxury", "SUV", "cargo"]),
+      ],
+      fuelType: [
+        (value) => oneOf(value, ["petrol", "diesel", "hybrid", "electric"]),
+      ],
+      pricePerDay: [(value) => greaterThan(value, 0)],
+      numberOfSeats: [(value) => greaterThan(value, 0)],
+      count: [(value) => greaterThan(value, 0)],
+      imageUrl: [notEmpty],
+      constructionYear: [(value) => greaterThan(value, 0)],
+    }
   );
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -43,6 +62,9 @@ export default function CarPopup({
               onChange={handleInputChange}
               type="text"
             />
+            {errors.brand && (
+              <Form.Text style={{ color: "red" }}>{errors.brand}</Form.Text>
+            )}
           </Form.Group>
           <Form.Group className="mb-3" controlId="model">
             <Form.Label>Model</Form.Label>
@@ -52,6 +74,9 @@ export default function CarPopup({
               onChange={handleInputChange}
               type="text"
             />
+            {errors.model && (
+              <Form.Text style={{ color: "red" }}>{errors.model}</Form.Text>
+            )}
           </Form.Group>
           <Form.Group className="mb-3" controlId="constructionYear">
             <Form.Label>Construction Year</Form.Label>
@@ -61,6 +86,11 @@ export default function CarPopup({
               onChange={handleInputChange}
               type="number"
             />
+            {errors.constructionYear && (
+              <Form.Text style={{ color: "red" }}>
+                {errors.constructionYear}
+              </Form.Text>
+            )}
           </Form.Group>
           <Form.Group className="mb-3" controlId="type">
             <Form.Label>Type</Form.Label>
@@ -75,6 +105,9 @@ export default function CarPopup({
               <option value="SUV">SUV</option>
               <option value="cargo">Cargo</option>
             </Form.Select>
+            {errors.type && (
+              <Form.Text style={{ color: "red" }}>{errors.type}</Form.Text>
+            )}
           </Form.Group>
           <Form.Group className="mb-3" controlId="fuelType">
             <Form.Label>Fuel Type</Form.Label>
@@ -88,6 +121,9 @@ export default function CarPopup({
               <option value="hybrid">Hybrid</option>
               <option value="electric">Electric</option>
             </Form.Select>
+            {errors.fuelType && (
+              <Form.Text style={{ color: "red" }}>{errors.fuelType}</Form.Text>
+            )}
           </Form.Group>
           <Form.Group className="mb-3" controlId="numberOfSeats">
             <Form.Label>Number of seats</Form.Label>
@@ -97,6 +133,11 @@ export default function CarPopup({
               value={formState.numberOfSeats}
               onChange={handleInputChange}
             />
+            {errors.numberOfSeats && (
+              <Form.Text style={{ color: "red" }}>
+                {errors.numberOfSeats}
+              </Form.Text>
+            )}
           </Form.Group>
           <Form.Group className="mb-3" controlId="imageUrl">
             <Form.Label>Picture url</Form.Label>
@@ -106,6 +147,9 @@ export default function CarPopup({
               value={formState.imageUrl}
               onChange={handleInputChange}
             />
+            {errors.imageUrl && (
+              <Form.Text style={{ color: "red" }}>{errors.imageUrl}</Form.Text>
+            )}
           </Form.Group>
           <Form.Group className="mb-3" controlId="pricePerDay">
             <Form.Label>Price per day</Form.Label>
@@ -115,6 +159,11 @@ export default function CarPopup({
               value={formState.pricePerDay}
               onChange={handleInputChange}
             />
+            {errors.pricePerDay && (
+              <Form.Text style={{ color: "red" }}>
+                {errors.pricePerDay}
+              </Form.Text>
+            )}
           </Form.Group>
           <Form.Group className="mb-3" controlId="count">
             <Form.Label>Count</Form.Label>
@@ -124,6 +173,9 @@ export default function CarPopup({
               value={formState.count}
               onChange={handleInputChange}
             />
+            {errors.count && (
+              <Form.Text style={{ color: "red" }}>{errors.count}</Form.Text>
+            )}
           </Form.Group>
           <div style={{ display: "flex", justifyContent: "flex-end" }}>
             <Button
