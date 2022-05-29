@@ -24,25 +24,21 @@ export default function CarPopup({
           imageUrl: "",
           constructionYear: 2022,
         };
-  const [formState, handleInputChange, errors, touched] = useFormState(
-    initalFormState,
-    {
-      brand: [notEmpty],
-      model: [notEmpty],
-      type: [
-        (value) =>
-          oneOf(value, ["economy", "estate", "luxury", "SUV", "cargo"]),
-      ],
-      fuelType: [
-        (value) => oneOf(value, ["petrol", "diesel", "hybrid", "electric"]),
-      ],
-      pricePerDay: [(value) => greaterThan(value, 0)],
-      numberOfSeats: [(value) => greaterThan(value, 0)],
-      count: [(value) => greaterThan(value, 0)],
-      imageUrl: [notEmpty],
-      constructionYear: [(value) => greaterThan(value, 0)],
-    }
-  );
+  const [formState, handleInputChange, errors] = useFormState(initalFormState, {
+    brand: [notEmpty],
+    model: [notEmpty],
+    type: [
+      (value) => oneOf(value, ["economy", "estate", "luxury", "SUV", "cargo"]),
+    ],
+    fuelType: [
+      (value) => oneOf(value, ["petrol", "diesel", "hybrid", "electric"]),
+    ],
+    pricePerDay: [(value) => greaterThan(value, 0)],
+    numberOfSeats: [(value) => greaterThan(value, 0)],
+    count: [(value) => greaterThan(value, 0)],
+    imageUrl: [notEmpty],
+    constructionYear: [(value) => greaterThan(value, 0)],
+  });
   const handleSubmit = (e) => {
     e.preventDefault();
     submitAction(formState);

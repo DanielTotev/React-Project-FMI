@@ -10,14 +10,11 @@ export default function CustomerEditPopup({
   customer,
   submitCleanUp,
 }) {
-  const [formState, handleInputChange, errors, touched] = useFormState(
-    customer,
-    {
-      fullName: [notEmpty],
-      email: [notEmpty, isEmail],
-      phoneNumber: [notEmpty],
-    }
-  );
+  const [formState, handleInputChange, errors] = useFormState(customer, {
+    fullName: [notEmpty],
+    email: [notEmpty, isEmail],
+    phoneNumber: [notEmpty],
+  });
   const handleSubmit = (e) => {
     console.log("HERE");
     e.preventDefault();
@@ -82,7 +79,11 @@ export default function CustomerEditPopup({
             >
               Close
             </Button>
-            <Button variant="primary" type="submit">
+            <Button
+              variant="primary"
+              type="submit"
+              disabled={Object.keys(errors).length > 0}
+            >
               Save changes
             </Button>
           </div>
