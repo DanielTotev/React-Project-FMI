@@ -35,6 +35,20 @@
       "phoneNumber": "+3598700000",
       "password": "1234",
       "id": 58
+    },
+    {
+      "fullName": "Test1233",
+      "email": "test123@gmail.com",
+      "phoneNumber": "+359123456788",
+      "password": "123",
+      "id": 59
+    },
+    {
+      "fullName": "John Cena",
+      "email": "johnCena@gmail.com",
+      "phoneNumber": "+55555555555555",
+      "password": "ycme",
+      "id": 60
     }
   ],
   "vehicles": [
@@ -58,7 +72,7 @@
       "numberOfSeats": 4,
       "imageUrl": "https://th.bing.com/th/id/OIP.hESMsvkesbTuhUwR7gz9VwHaFj?pid=ImgDet&rs=1",
       "pricePerDay": 10,
-      "count": 7
+      "count": "12"
     },
     {
       "id": 3,

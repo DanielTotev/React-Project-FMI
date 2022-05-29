@@ -109,7 +109,12 @@ export default function CustomerForm({ submitAction }) {
             variant="primary"
             type="submit"
             style={{ float: "right" }}
-            disabled={!(touched && Object.keys(errors).length == 0)}
+            disabled={
+              !(
+                touched.length === Object.keys(formState).length &&
+                Object.keys(errors).length === 0
+              )
+            }
           >
             Submit
           </Button>

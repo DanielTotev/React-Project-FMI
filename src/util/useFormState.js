@@ -3,7 +3,7 @@ import { useState } from "react";
 export function useFormState(initialState, validators = {}) {
   const [formState, setFormstate] = useState(initialState);
   const [errors, setErrors] = useState({});
-  const [touched, setTouched] = useState(false);
+  const [touched, setTouched] = useState([]);
   const clearError = (fieldName) => {
     const updatedErrors = { ...errors };
     delete updatedErrors[fieldName];
@@ -28,13 +28,15 @@ export function useFormState(initialState, validators = {}) {
     }
   }
   const handleInputChange = (event) => {
-    applyValidators(event.target.name, event.target.value);
+    const fieldName = event.target.name;
+    const fieldValue = event.target.value;
+    applyValidators(fieldName, fieldValue);
     setFormstate({
       ...formState,
-      [event.target.name]: event.target.value,
+      [fieldName]: fieldValue,
     });
-    if (!touched) {
-      setTouched(true);
+    if (!touched.includes(fieldName)) {
+      setTouched((prevTouched) => [...prevTouched, fieldName]);
     }
   };
   return [formState, handleInputChange, errors, touched];
