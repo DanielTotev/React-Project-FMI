@@ -11,14 +11,27 @@ import {
   getRentsForThePast90DaysForCurrentUser,
 } from "../util/rentsUtils";
 import { useNavigate } from "react-router-dom";
+import { notEmpty } from "../util/validators";
 
 export default function CarRentalPage() {
   const { carId } = useParams();
   const [car, setCar] = useState({});
-  const [formState, handleInputChange] = useFormState({
-    startDate: "",
-    endDate: "",
-  });
+  const [formState, handleInputChange, errors] = useFormState(
+    {
+      startDate: "",
+      endDate: "",
+    },
+    {
+      startDate: [notEmpty],
+      endDate: [
+        notEmpty,
+        (value, formState) => ({
+          valid: moment(value).isAfter(moment(formState.startDate)),
+          message: "End date must be after start date",
+        }),
+      ],
+    }
+  );
   const [rentsInThePast90Days, setRentsInThePast90Days] = useState([]);
   const navigate = useNavigate();
 
@@ -161,6 +174,11 @@ export default function CarRentalPage() {
                 className="form-control"
                 name="startDate"
               />
+              {errors.startDate && (
+                <Form.Text style={{ color: "red" }}>
+                  {errors.startDate}
+                </Form.Text>
+              )}
             </Form.Group>
             <Form.Group className="mb-3" controlId="endDate">
               <Form.Label>End Date</Form.Label>
@@ -174,6 +192,9 @@ export default function CarRentalPage() {
                 className="form-control"
                 name="endDate"
               />
+              {errors.endDate && (
+                <Form.Text style={{ color: "red" }}>{errors.endDate}</Form.Text>
+              )}
             </Form.Group>
             <div className="mb-3">
               <span>
@@ -197,6 +218,11 @@ export default function CarRentalPage() {
                 className="orange-button"
                 type="submit"
                 style={{ float: "right" }}
+                disabled={
+                  !formState.startDate ||
+                  !formState.endDate ||
+                  Object.keys(errors).length > 0
+                }
               >
                 Submit Rent
               </Button>
