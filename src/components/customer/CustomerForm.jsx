@@ -14,7 +14,7 @@ export default function CustomerForm({ submitAction }) {
     e.preventDefault();
     submitAction({
       fullName: formState.fullName,
-      email: formState.fullName,
+      email: formState.email,
       phoneNumber: formState.phoneNumber,
       password: formState.password,
     });

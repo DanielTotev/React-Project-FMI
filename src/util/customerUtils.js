@@ -1,6 +1,13 @@
 const apiUrl = "http://localhost:3005/customers";
 
-export const registerCustomer = (customer) => {
+export const registerCustomer = async (customer) => {
+  const customerWithSameEmailResponse = await fetch(
+    `${apiUrl}?email=${customer.email}`
+  );
+  const customersWithSameEmail = await customerWithSameEmailResponse.json();
+  if (customersWithSameEmail.length > 0) {
+    throw new Error("Customer with same email exists");
+  }
   return fetch(apiUrl, {
     method: "POST",
     body: JSON.stringify(customer),

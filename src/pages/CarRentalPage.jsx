@@ -122,6 +122,15 @@ export default function CarRentalPage() {
                 type="text"
               />
             </Form.Group>
+            <Form.Group className="mb-3" controlId="fuelType">
+              <Form.Label>Fuel type</Form.Label>
+              <Form.Control
+                name="constructionYear"
+                value={car.fuelType}
+                disabled={true}
+                type="text"
+              />
+            </Form.Group>
             <Form.Group className="mb-3" controlId="pricePerDay">
               <Form.Label>Price per day</Form.Label>
               <Form.Control

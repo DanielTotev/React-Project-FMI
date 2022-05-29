@@ -28,6 +28,13 @@
       "password": "pass123",
       "phoneNumber": "+359123456789",
       "id": 57
+    },
+    {
+      "fullName": "Daniel Totev",
+      "email": "dtotev2@gmail.com",
+      "phoneNumber": "+3598700000",
+      "password": "1234",
+      "id": 58
     }
   ],
   "vehicles": [
