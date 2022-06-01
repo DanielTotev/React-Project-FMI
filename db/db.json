@@ -46,9 +46,16 @@
     {
       "fullName": "John Cena",
       "email": "johnCena@gmail.com",
-      "phoneNumber": "+55555555555555",
+      "phoneNumber": "+555555555555",
       "password": "ycme",
       "id": 60
+    },
+    {
+      "fullName": "My New Profile",
+      "email": "profile@gmail.com",
+      "phoneNumber": "+35987000000",
+      "password": "1234",
+      "id": 61
     }
   ],
   "vehicles": [
@@ -61,7 +68,8 @@
       "numberOfSeats": 4,
       "imageUrl": "https://media.ed.edmunds-media.com/volkswagen/taos/2022/oem/2022_volkswagen_taos_4dr-suv_se_fq_oem_1_815.jpg",
       "pricePerDay": 200,
-      "count": 3
+      "count": 3,
+      "fuelType": "diesel"
     },
     {
       "id": 2,
@@ -72,7 +80,8 @@
       "numberOfSeats": 4,
       "imageUrl": "https://th.bing.com/th/id/OIP.hESMsvkesbTuhUwR7gz9VwHaFj?pid=ImgDet&rs=1",
       "pricePerDay": 10,
-      "count": "12"
+      "count": "12",
+      "fuelType": "petrol"
     },
     {
       "id": 3,
@@ -83,7 +92,8 @@
       "numberOfSeats": 4,
       "imageUrl": "https://thumbor.forbes.com/thumbor/fit-in/960x600/https://www.forbes.com/wheels/wp-content/uploads/2021/02/2021_Mercedes_S-Class_Gallery1.jpg",
       "pricePerDay": 250,
-      "count": 1
+      "count": 1,
+      "fuelType": "petrol"
     },
     {
       "id": 4,
@@ -126,7 +136,7 @@
       "fuelType": "petrol",
       "numberOfSeats": "4",
       "pricePerDay": "150",
-      "count": "3",
+      "count": 2,
       "imageUrl": "https://th.bing.com/th/id/R.bc5c521a182b7ab8ebc155a4a77b8137?rik=Qg4Yg35%2f0mvk3Q&pid=ImgRaw&r=0",
       "id": 8,
       "constructionYear": "2019"
@@ -333,6 +343,31 @@
       },
       "total": 127.5,
       "id": 7
+    },
+    {
+      "startDate": "2022-06-07T21:00:00.000Z",
+      "endDate": "2022-06-14T21:00:00.000Z",
+      "car": {
+        "brand": "Ferrari",
+        "model": "812",
+        "type": "luxury",
+        "fuelType": "petrol",
+        "numberOfSeats": "4",
+        "pricePerDay": "150",
+        "count": 2,
+        "imageUrl": "https://th.bing.com/th/id/R.bc5c521a182b7ab8ebc155a4a77b8137?rik=Qg4Yg35%2f0mvk3Q&pid=ImgRaw&r=0",
+        "id": 8,
+        "constructionYear": "2019"
+      },
+      "customer": {
+        "fullName": "My New Profile",
+        "email": "profile@gmail.com",
+        "phoneNumber": "+35987000000",
+        "password": "1234",
+        "id": 61
+      },
+      "total": 976.4999999999999,
+      "id": 8
     }
   ]
 }

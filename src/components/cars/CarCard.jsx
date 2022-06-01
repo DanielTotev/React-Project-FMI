@@ -19,16 +19,19 @@ export default function CarCard({
       <Card.Body>
         <Card.Title>{`${car.brand} ${car.model}`}</Card.Title>
         <p>Type: {car.type}</p>
+        <p>Fuel Type: {car.fuelType}</p>
         <p>Construction year: {car.constructionYear}</p>
         <p>Price per day: {car.pricePerDay} BGN</p>
         <p>Available cars: {car.count}</p>
-        <Link
-          to={`/cars/${car.id}/rent`}
-          className="btn orange-button"
-          style={{ marginRight: "10px" }}
-        >
-          Rent
-        </Link>
+        {car.count > 0 && (
+          <Link
+            to={`/cars/${car.id}/rent`}
+            className="btn orange-button"
+            style={{ marginRight: "10px" }}
+          >
+            Rent
+          </Link>
+        )}
         <UserIsAdminElementGuard>
           <Button
             variant="primary"
